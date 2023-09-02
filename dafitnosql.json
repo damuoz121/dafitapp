@@ -1,0 +1,661 @@
+[[{
+    "_id": {
+      "$oid": "6403e950a658c16c7f1dc68c"
+    },
+    "cedula": {
+      "$numberLong": "2222222221"
+    },
+    "nombre": "Alejandro Uribe",
+    "peso": 65,
+    "estatura": 170,
+    "fechadenacimiento": {
+      "$date": "1996-01-01T00:00:00.000Z"
+    },
+    "email": "alejandro121@soy.sena.edu.co",
+    "telefono": {
+      "$numberLong": "3000000001"
+    },
+    "instructor": "Daniel Munoz",
+    "plan": {
+      "$oid": "6403ede0a658c16c7f1dc68e"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6403e953a658c16c7f1dc68f"
+    },
+    "cedula": {
+      "$numberLong": "5555555551"
+    },
+    "nombre": "Laura Ramírez",
+    "peso": 62,
+    "estatura": 165,
+    "fechadenacimiento": {
+      "$date": "1992-11-20T00:00:00.000Z"
+    },
+    "email": "laura@gmail.com",
+    "telefono": {
+      "$numberLong": "3100000001"
+    },
+    "instructor": "Daniel Munoz",
+    "plan": {
+      "$oid": "6403ede0a658c16c7f1dc68e"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6403e954a658c16c7f1dc690"
+    },
+    "cedula": {
+      "$numberLong": "6666666661"
+    },
+    "nombre": "Andrés Sánchez",
+    "peso": 75,
+    "estatura": 178,
+    "fechadenacimiento": {
+      "$date": "1988-08-08T00:00:00.000Z"
+    },
+    "email": "andres@gmail.com",
+    "telefono": {
+      "$numberLong": "3123456789"
+    },
+    "instructor": "Maria Lopez",
+    "plan": {
+      "$oid": "6403ede0a658c16c7f1dc68e"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6403e952a658c16c7f1dc68e"
+    },
+    "cedula": {
+      "$numberLong": "4444444441"
+    },
+    "nombre": "Carlos López",
+    "peso": 80,
+    "estatura": 180,
+    "fechadenacimiento": {
+      "$date": "1985-03-10T00:00:00.000Z"
+    },
+    "email": "carlos@example.com",
+    "telefono": {
+      "$numberLong": "3000000002"
+    },
+    "instructor": "Maria Lopez",
+    "plan": {
+      "$oid": "6403ede0a658c16c7f1dc68e"
+    }
+  }],
+  [{
+    "_id": "001",
+    "nombre": "Press banca",
+    "dificultad": 3,
+    "descripcion": "es un ejercicio de peso libre que trabaja la fuerza de empuje del tren superior en el plano sagital empujando la barra",
+    "musculatura": [
+      "Pectoral",
+      "biceps",
+      "deltoides"
+    ]
+  },
+  {
+    "_id": "002",
+    "nombre": "Dominadas",
+    "dificultad": 5,
+    "descripcion": "es un ejercicio que consiste en agarrarse a una barra fija o bien sujeta y colgarse desde ese punto con las extremidades estiradas para después hacer una flexión de brazos hasta sobrepasar la barra con la barbilla",
+    "musculatura": [
+      "Trapecio",
+      "Deltoides",
+      "Escapular"
+    ]
+  },
+  {
+    "_id": "003",
+    "nombre": "Sentadilla",
+    "dificultad": 4,
+    "descripcion": "El ejercicio consiste en flexionar las rodillas y bajar el cuerpo manteniendo la verticalidad, para luego regresar a una posición erguida. Por lo general, mientras realiza sentadillas, la persona sostiene algún peso con sus brazos o el cuello.",
+    "musculatura": [
+      "Isquiotibiales",
+      "Cuadriceps",
+      "Glúteos"
+    ]
+  },
+  {
+    "_id": "004",
+    "nombre": "Plancha",
+    "dificultad": 1,
+    "descripcion": "La plancha es un ejercicio de resistencia estático que fortalece los músculos del core. Se realiza manteniendo el cuerpo en posición horizontal y recta, apoyado en los antebrazos y las puntas de los pies.",
+    "musculatura": [
+      "Abdominales",
+      "Dorsales",
+      "Oblicuos"
+    ]
+  },
+  {
+    "_id": "005",
+    "nombre": "Curl de bíceps",
+    "dificultad": 2,
+    "descripcion": "El curl de bíceps es un ejercicio de aislamiento para fortalecer los músculos del brazo. Se realiza flexionando el codo mientras sostienes peso en las manos.",
+    "musculatura": [
+      "Bíceps",
+      "Braquial"
+    ]
+  },
+  {
+    "_id": "006",
+    "nombre": "Zancadas",
+    "dificultad": 3,
+    "descripcion": "Las zancadas son un ejercicio que trabaja los músculos de las piernas y glúteos. Consiste en dar pasos largos hacia adelante y flexionar ambas rodillas.",
+    "musculatura": [
+      "Cuádriceps",
+      "Glúteos",
+      "Isquiotibiales"
+    ]
+  },
+  {
+    "_id": "007",
+    "nombre": "Press de hombros",
+    "dificultad": 2,
+    "descripcion": "El press de hombros es un ejercicio que fortalece los músculos deltoides. Se realiza levantando peso desde los hombros hasta los brazos extendidos sobre la cabeza.",
+    "musculatura": [
+      "Deltoides",
+      "Trapecio",
+      "Tríceps"
+    ]
+  },
+  {
+    "_id": "008",
+    "nombre": "Hip Thrust",
+    "dificultad": 3,
+    "descripcion": "El Hip Thrust es un ejercicio para los glúteos y los isquiotibiales. Se realiza apoyando la espalda en un banco y levantando la cadera mientras sostienes peso.",
+    "musculatura": [
+      "Glúteos",
+      "Isquiotibiales",
+      "Erectores espinales"
+    ]
+  },
+  {
+    "_id": "009",
+    "nombre": "Peso muerto",
+    "dificultad": 4,
+    "descripcion": "El peso muerto es un ejercicio de levantamiento que trabaja la musculatura de la espalda baja, glúteos y piernas. Se realiza levantando una barra desde el suelo hasta la posición erguida.",
+    "musculatura": [
+      "Espalda baja",
+      "Glúteos",
+      "Isquiotibiales"
+    ]
+  },
+  {
+    "_id": "010",
+    "nombre": "Flexiones de brazos",
+    "dificultad": 2,
+    "descripcion": "Las flexiones de brazos son un ejercicio básico para trabajar el tren superior. Se realiza apoyando las manos en el suelo y flexionando los codos mientras mantienes el cuerpo recto.",
+    "musculatura": [
+      "Pectoral",
+      "Tríceps",
+      "Deltoides anterior"
+    ]
+  },
+  {
+    "_id": "011",
+    "nombre": "Pull-Ups",
+    "dificultad": 3,
+    "descripcion": "Los Pull-Ups son otro ejercicio de tracción que trabaja los músculos de la espalda y los brazos. Se realiza colgando de una barra y levantando el cuerpo hasta que el mentón está por encima de la barra.",
+    "musculatura": [
+      "Dorsales",
+      "Bíceps",
+      "Trapecio"
+    ]
+  },
+  {
+    "_id": "012",
+    "nombre": "Burpees",
+    "dificultad": 3,
+    "descripcion": "Los burpees son un ejercicio cardiovascular que involucra varios grupos musculares. Se realiza desde una posición de pie, luego se hace una flexión, se llevan las piernas hacia adelante y se salta con los brazos extendidos.",
+    "musculatura": [
+      "Músculos cardiovasculares",
+      "Pectorales",
+      "Cuádriceps"
+    ]
+  },
+  {
+    "_id": "013",
+    "nombre": "Plancha lateral",
+    "dificultad": 2,
+    "descripcion": "La plancha lateral es un ejercicio para fortalecer los músculos del core y los oblicuos. Se realiza apoyado en un antebrazo y los costados de los pies, manteniendo el cuerpo en línea recta.",
+    "musculatura": [
+      "Oblicuos",
+      "Abdominales",
+      "Dorsales"
+    ]
+  },
+  {
+    "_id": "014",
+    "nombre": "Fondos en paralelas",
+    "dificultad": 3,
+    "descripcion": "Los fondos en paralelas son un ejercicio de tracción que trabaja los tríceps y los músculos del pecho. Se realiza entre dos barras paralelas, bajando y subiendo el cuerpo con los brazos.",
+    "musculatura": [
+      "Tríceps",
+      "Pectorales",
+      "Dorsales"
+    ]
+  },
+  {
+    "_id": "015",
+    "nombre": "Elevaciones laterales",
+    "dificultad": 2,
+    "descripcion": "Las elevaciones laterales son un ejercicio de aislamiento para trabajar los músculos deltoides. Se realiza levantando los brazos lateralmente hasta la altura de los hombros mientras sostienes peso.",
+    "musculatura": [
+      "Deltoides",
+      "Trapecio",
+      "Supraespinoso"
+    ]
+  }],
+  [{
+    "_id": {
+      "$oid": "6402a36687631d70f40a9876"
+    },
+    "cedula": 1111111111,
+    "nombre": "Daniel",
+    "apellido": "Munoz",
+    "fechadenacimiento": {
+      "$date": "1996-01-06T00:00:00.000Z"
+    },
+    "email": "damuoz121@gmail.com",
+    "telefono": {
+      "$numberLong": "3015959955"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6402a36687631d70f40a9877"
+    },
+    "cedula": {
+      "$numberLong": "2222222222"
+    },
+    "nombre": "María",
+    "apellido": "López",
+    "fechadenacimiento": {
+      "$date": "1990-07-15T00:00:00.000Z"
+    },
+    "email": "marialopez@gmail.com",
+    "telefono": {
+      "$numberLong": "3112345678"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6402a36687631d70f40a9878"
+    },
+    "cedula": {
+      "$numberLong": "3333333333"
+    },
+    "nombre": "Carlos",
+    "apellido": "González",
+    "fechadenacimiento": {
+      "$date": "1985-03-22T00:00:00.000Z"
+    },
+    "email": "carlosg@gmail.com",
+    "telefono": {
+      "$numberLong": "3009876543"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6402a36687631d70f40a9879"
+    },
+    "cedula": {
+      "$numberLong": "4444444444"
+    },
+    "nombre": "Laura",
+    "apellido": "Ramírez",
+    "fechadenacimiento": {
+      "$date": "1992-11-10T00:00:00.000Z"
+    },
+    "email": "lauraramirez@gmail.com",
+    "telefono": {
+      "$numberLong": "3108765432"
+    }
+  }],
+  [{
+    "_id": {
+      "$oid": "6403ede0a658c16c7f1dc68e"
+    },
+    "nombre": "Semana 1",
+    "frecuencia": 3,
+    "dificultad": 3,
+    "objetivo": "Hipertrofia",
+    "rutinas": [
+      "64eac975d6cf2b256ed585b1",
+      "64eac975d6cf2b256ed585b2",
+      "64eac975d6cf2b256ed585b3"
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "6403ede0a658c16c7f1dc68f"
+    },
+    "nombre": "Semana 2",
+    "frecuencia": 4,
+    "dificultad": 4,
+    "objetivo": "Fuerza",
+    "rutinas": [
+      "64eac975d6cf2b256ed585b4",
+      "64eac975d6cf2b256ed585b5",
+      "64eac975d6cf2b256ed585b6"
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "6403ede0a658c16c7f1dc690"
+    },
+    "nombre": "Semana 3",
+    "frecuencia": 5,
+    "dificultad": 2,
+    "objetivo": "Acondicionamiento",
+    "rutinas": [
+      "64eac975d6cf2b256ed585b7",
+      "64eac975d6cf2b256ed585b8",
+      "64eac975d6cf2b256ed585b9"
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "6403ede0a658c16c7f1dc691"
+    },
+    "nombre": "Semana 4",
+    "frecuencia": 3,
+    "dificultad": 4,
+    "objetivo": "Definición",
+    "rutinas": [
+      "64eac975d6cf2b256ed585ba",
+      "64eac975d6cf2b256ed585b1",
+      "64eac975d6cf2b256ed585b2"
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "6403ede0a658c16c7f1dc692"
+    },
+    "nombre": "Semana 5",
+    "frecuencia": 4,
+    "dificultad": 3,
+    "objetivo": "Mantenimiento",
+    "rutinas": [
+      "64eac975d6cf2b256ed585b3",
+      "64eac975d6cf2b256ed585b4",
+      "64eac975d6cf2b256ed585b5"
+    ]
+  }],
+  [{
+    "_id": {
+      "$oid": "64eac975d6cf2b256ed585b0"
+    },
+    "dia": 1,
+    "ejercicios": [
+      {
+        "_id": "001",
+        "repeticiones": 10,
+        "series": 4,
+        "intensidad": 3
+      },
+      {
+        "_id": "002",
+        "repeticiones": 12,
+        "series": 4,
+        "intensidad": 4
+      },
+      {
+        "_id": "003",
+        "repeticiones": 12,
+        "series": 4,
+        "intensidad": 5
+      }
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "64eac975d6cf2b256ed585b2"
+    },
+    "dia": 2,
+    "ejercicios": [
+      {
+        "_id": "007",
+        "repeticiones": 10,
+        "series": 4,
+        "intensidad": 3
+      },
+      {
+        "_id": "008",
+        "repeticiones": 12,
+        "series": 4,
+        "intensidad": 4
+      },
+      {
+        "_id": "009",
+        "repeticiones": 12,
+        "series": 4,
+        "intensidad": 5
+      }
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "64eac975d6cf2b256ed585b3"
+    },
+    "dia": 3,
+    "ejercicios": [
+      {
+        "_id": "010",
+        "repeticiones": 8,
+        "series": 3,
+        "intensidad": 3
+      },
+      {
+        "_id": "011",
+        "repeticiones": 10,
+        "series": 3,
+        "intensidad": 4
+      },
+      {
+        "_id": "012",
+        "repeticiones": 10,
+        "series": 3,
+        "intensidad": 5
+      }
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "64eac975d6cf2b256ed585b4"
+    },
+    "dia": 4,
+    "ejercicios": [
+      {
+        "_id": "013",
+        "repeticiones": 10,
+        "series": 4,
+        "intensidad": 3
+      },
+      {
+        "_id": "014",
+        "repeticiones": 12,
+        "series": 4,
+        "intensidad": 4
+      },
+      {
+        "_id": "015",
+        "repeticiones": 12,
+        "series": 4,
+        "intensidad": 5
+      }
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "64eac975d6cf2b256ed585b5"
+    },
+    "dia": 5,
+    "ejercicios": [
+      {
+        "_id": "001",
+        "repeticiones": 8,
+        "series": 3,
+        "intensidad": 3
+      },
+      {
+        "_id": "002",
+        "repeticiones": 10,
+        "series": 3,
+        "intensidad": 4
+      },
+      {
+        "_id": "003",
+        "repeticiones": 10,
+        "series": 3,
+        "intensidad": 5
+      }
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "64eac975d6cf2b256ed585b6"
+    },
+    "dia": 6,
+    "ejercicios": [
+      {
+        "_id": "004",
+        "repeticiones": 10,
+        "series": 4,
+        "intensidad": 3
+      },
+      {
+        "_id": "005",
+        "repeticiones": 12,
+        "series": 4,
+        "intensidad": 4
+      },
+      {
+        "_id": "006",
+        "repeticiones": 12,
+        "series": 4,
+        "intensidad": 5
+      }
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "64eac975d6cf2b256ed585b7"
+    },
+    "dia": 7,
+    "ejercicios": [
+      {
+        "_id": "007",
+        "repeticiones": 8,
+        "series": 3,
+        "intensidad": 3
+      },
+      {
+        "_id": "008",
+        "repeticiones": 10,
+        "series": 3,
+        "intensidad": 4
+      },
+      {
+        "_id": "009",
+        "repeticiones": 10,
+        "series": 3,
+        "intensidad": 5
+      }
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "64eac975d6cf2b256ed585b8"
+    },
+    "dia": 8,
+    "ejercicios": [
+      {
+        "_id": "010",
+        "repeticiones": 10,
+        "series": 4,
+        "intensidad": 3
+      },
+      {
+        "_id": "011",
+        "repeticiones": 12,
+        "series": 4,
+        "intensidad": 4
+      },
+      {
+        "_id": "012",
+        "repeticiones": 12,
+        "series": 4,
+        "intensidad": 5
+      }
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "64eac975d6cf2b256ed585b9"
+    },
+    "dia": 9,
+    "ejercicios": [
+      {
+        "_id": "013",
+        "repeticiones": 8,
+        "series": 3,
+        "intensidad": 3
+      },
+      {
+        "_id": "014",
+        "repeticiones": 10,
+        "series": 3,
+        "intensidad": 4
+      },
+      {
+        "_id": "015",
+        "repeticiones": 10,
+        "series": 3,
+        "intensidad": 5
+      }
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "64eac975d6cf2b256ed585ba"
+    },
+    "dia": 10,
+    "ejercicios": [
+      {
+        "_id": "007",
+        "repeticiones": 8,
+        "series": 3,
+        "intensidad": 3
+      },
+      {
+        "_id": "010",
+        "repeticiones": 15,
+        "series": 3,
+        "intensidad": 4
+      }
+    ]
+  }],
+  [{
+    "_id": "01",
+    "usuario": "admin",
+    "password": "admin",
+    "rol": "admin"
+  },
+  {
+    "_id": "02",
+    "usuario": "alejandrito",
+    "password": "alejandrito",
+    "rol": "instructor"
+  },
+  {
+    "_id": "03",
+    "usuario": "danielito",
+    "password": "danielito",
+    "rol": "cliente"
+  }]
+]
