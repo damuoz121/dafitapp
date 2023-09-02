@@ -6,6 +6,12 @@ const clienteSchema = new mongoose.Schema({
         unique:[true, 'esta cedula ya se encuentra registrada'],
         minLength:[7, 'las cedulas tienen mas de 7 digitos'],
         maxLength:[10, 'las cedulas tienen maximo 10 digitos']},
+    usuario:{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Usuario',
+        required:[true, 'requiere su usuario']
+
+    },    
     nombre: {
         type: String,
         required: [true, 'requiere un nombre'],
