@@ -31,7 +31,7 @@ const instructorSchema = new mongoose.Schema({
         maxlength: [100, 'El email no puede tener más de 100 caracteres']
     },
     telefono: {
-        type: Number,
+        type: String,
         required: [true, 'El número de teléfono del instructor es obligatorio'],
         minlength: [10, 'El número de teléfono debe tener al menos 10 dígitos'],
         maxlength: [10, 'El número de teléfono no puede tener más de 10 dígitos']

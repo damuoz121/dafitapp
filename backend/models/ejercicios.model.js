@@ -9,6 +9,8 @@ const ejercicioSchema = new mongoose.Schema({
     dificultad: {
         type: Number,
         required: [true, 'La dificultad del ejercicio es obligatoria'],
+        min:[1,'error al colocar la dificultad'],
+        max:[3,'error al colocar la dificultad'],
         enum: [1, 2, 3]
     },
     descripcion: {

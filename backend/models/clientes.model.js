@@ -19,22 +19,25 @@ const clienteSchema = new mongoose.Schema({
     peso: {
         type: Number,
         required: [true, 'requiere un peso'],
-        minLength:[2, 'el peso requiere 2 digitos'],
-        maxLength:[3, 'el peso requiere maximo 3 digitos']},
+        min:[30, 'el peso requiere 2 digitos'],
+        max:[400, 'el peso requiere maximo 3 digitos']},
     estatura: {
         type: Number,
         required: [true, 'requiere un peso'],
-        minLength:[3, 'la estatura 2 digitos'],
-        maxLength:[3, 'el peso requiere maximo 3 digitos']},
+        min:[100, 'la estatura 2 digitos'],
+        max:[220, 'el peso requiere maximo 3 digitos']},
     fechadenacimiento: {
-        type: Date, required: [true, 'la fecha de nacimiento es obligatoria']},
+        type: Date, 
+        required: [true, 'la fecha de nacimiento es obligatoria']},
     email: {
-        type: String, required: [true, 'requiere su email'],
+        type: String,
+        required: [true, 'requiere su email'],
         unique:[true, 'esta email ya se encuentra registrado'],
         minLength:[6, 'los email tienen mas de 7 caracteres'],
         maxLength:[100, 'los email tienen maximo 100 caracteres']},
     telefono: {
-        type: Number, required: [true, 'requiere un numero de telefono'],
+        type: String,
+        required: [true, 'requiere un numero de telefono'],
         minLength:[10, 'el telefono requiere 10 digitos'],
         maxLength:[10, 'el telefono requiere maximo 10 digitos']
     },
