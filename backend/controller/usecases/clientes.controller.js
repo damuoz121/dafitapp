@@ -1,3 +1,7 @@
+const cliente= require('../../models/clientes.model');
+
+const clientesController=  {};
+
 function RegistrarCliente(){
     async (req, res) => {
         try {
@@ -17,15 +21,21 @@ function RegistrarCliente(){
           console.log("Cliente egistrado exitosamente");
         } catch (error) {
           console.error(error);
-          console.log("Error al registrar el cliente");
+          res.send("Error al registrar el cliente");
         }
       };
 }
 
-function ActualizarCliente(){
+function VerCliente(){
+  
+}
 
+function ActualizarCliente(){
+    
 }
 
 function EliminarCliente(){
     
 }
+
+module.exports= clientesController;
