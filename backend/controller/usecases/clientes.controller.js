@@ -2,7 +2,7 @@ const cliente= require('../../models/clientes.model');
 
 const clientesController=  {};
 
-function RegistrarCliente(){
+function registrarCliente(){
     async (req, res) => {
         try {
           const clienteNuevo = new cliente({
@@ -27,14 +27,40 @@ function RegistrarCliente(){
 }
 
 function VerCliente(){
-  
+  async function verCliente() {
+    try{
+      let client =await cliente.find({});
+      console.log('cliente',cliente[0]);
+      return cliente;
+    }catch(error){
+    console.log(`Error ${error}`);
+  }
+}
 }
 
 function ActualizarCliente(){
+  async function actualizarCliente(id, body) {
+    try {
+      let clienteActualizado = await cliente.findByIdAndUpdate( id , body,{new : true});
+      console.log('actualizado',clienteActualizado );
+      return clienteActualizado ;
+      }catch{
+        console.log(`${error}`)
+        }}
+      }
     
-}
+
 
 function EliminarCliente(){
+  //eliminar cliente
+  async  function eliminarCliente(_id ) {
+    try {
+      let deletedClient= await cliente.findOneAndDelete({_id:_id})
+      console.log('Eliminado',deletedClient._id);
+      return deletedClient;
+    }catch( error ){console.log (`${error}`)}
+    }
+
     
 }
 
