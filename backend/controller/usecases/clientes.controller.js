@@ -1,4 +1,4 @@
-const cliente= require('../../models/clientes.model');
+const cliente= require('../data-access/clientes.controller');
 
 const clientesController=  {};
 

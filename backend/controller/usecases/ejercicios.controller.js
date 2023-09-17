@@ -1,4 +1,4 @@
-const ejercicio= require('../../models/ejercicios.model');
+const ejercicio= require('../data-access/ejercicios.controller');
 
 const ejercicioController=  {};
 

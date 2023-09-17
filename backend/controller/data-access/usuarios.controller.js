@@ -1,7 +1,7 @@
-const registrarUsuario=require('../usecases/usuarios.controller');
-const verUsuario=require('../usecases/usuarios.controller');
-const actualizarUsuario= require('../usecases/usuarios.controller');
-const eliminarUsuario= require('../usecases/usuarios.controller');
+const registrarUsuario=require('../../models/usuarios.model');
+const verUsuario=require('../../models/usuarios.model');
+const actualizarUsuario= require('../../models/usuarios.model');
+const eliminarUsuario= require('../../models/usuarios.model');
 
 export default function RegistrarUsuario(){
     const existe = async function findOne(){

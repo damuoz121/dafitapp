@@ -1,4 +1,4 @@
-const usuario= require('../../models/ejercicios.model');
+const usuario= require('../data-access/usuarios.controller');
 
 const usuarioController=  {};
 
