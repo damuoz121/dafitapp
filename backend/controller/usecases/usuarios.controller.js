@@ -1,6 +1,5 @@
 const usuario= require('../data-access/usuarios.controller');
 
-const usuarioController=  {};
 
 function registrarUsuario(){
     async (req, res) => {
@@ -55,4 +54,3 @@ function EliminarUsuario(){
     }
 }
 
-module.exports= usuarioController;
