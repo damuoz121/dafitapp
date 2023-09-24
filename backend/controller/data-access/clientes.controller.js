@@ -2,9 +2,11 @@ const clientesData=require('../../models/clientes.model');
 
 exports.buscar = async (req, res)=>{
     const listaClientes= await clientesData.find();
-    if(listaClientes) return listaClientes;
-    return {'error':'no se encontraron resultados'};
-    
+    if(listaClientes){
+        return {lista: listaClientes};
+    }else{
+        return {'error':'no se encontraron resultados'};
+    }
 };
 
 exports.eliminar = async (req, res)=>{

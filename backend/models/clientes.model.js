@@ -9,9 +9,7 @@ const clienteSchema = new mongoose.Schema({
     usuario:{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Usuario',
-        required:[true, 'requiere su usuario']
-
-    },    
+        required:[true, 'requiere su usuario']},    
     nombre: {
         type: String,
         required: [true, 'requiere un nombre'],

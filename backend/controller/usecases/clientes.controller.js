@@ -1,9 +1,9 @@
 const dataClientes = require('../data-access/clientes.controller');
-const clientesController={};
 
-exports.RegistrarCliente = (req,res)=>{
-  req.body;
-  if (dataClientes.buscar(_id)){
+exports.registrarCliente = (req,res)=>{
+  const {cedula, nombre, apellido,peso,estatura,fechadenacimiento,email,telefono,instructor,plan} = req.body;
+
+  if (dataClientes.buscar(cedula)){
     return{error:'este cliente ya existe'}
 
   }else{
@@ -12,7 +12,7 @@ exports.RegistrarCliente = (req,res)=>{
   }
 }
 
-exports.EliminarCliente=(req, res)=>{
+exports.eliminarCliente=(req, res)=>{
   req.body;
   if(dataClientes.buscar(_id)){
     return{error:'este cliente no existe'}
@@ -23,10 +23,11 @@ exports.EliminarCliente=(req, res)=>{
 
 }
 
-exports.VerCliente= async()=>{
-  const clientes =await dataClientes.find();
-  if (clientes){
+exports.verClientes= async()=>{
+  const clientes = await dataClientes.buscar();
+  if (!clientes){
     return{error:'no se puede registrar, este cliente ya existe'}
   }
+
 }
 
