@@ -23,10 +23,13 @@ exports.eliminarCliente=(req, res)=>{
 
 }
 
-exports.verClientes= async()=>{
+exports.verClientes = async(req,res)=>{
   const clientes = await dataClientes.buscar();
+  console.log('saludo'+ clientes.lista);
   if (!clientes){
     return{error:'no se puede registrar, este cliente ya existe'}
+  }else{
+    return {lista: clientes.lista};
   }
 
 }

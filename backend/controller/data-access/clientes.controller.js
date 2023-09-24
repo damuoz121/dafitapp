@@ -2,6 +2,8 @@ const clientesData=require('../../models/clientes.model');
 
 exports.buscar = async (req, res)=>{
     const listaClientes= await clientesData.find();
+    console.log(listaClientes)
+    console.log('imprime en el data-acces')
     if(listaClientes){
         return {lista: listaClientes};
     }else{
