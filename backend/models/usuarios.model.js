@@ -15,8 +15,8 @@ const usuarioSchema = new mongoose.Schema({
 
     rol: {
         type: String,
-        default: cliente},
+        }
 })
 
-const Usuario = mongoose.model('cliente', usuarioSchema);
+const Usuario = mongoose.model('usuario', usuarioSchema);
 module.exports = Usuario
