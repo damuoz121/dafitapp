@@ -29,3 +29,5 @@ Para informar errores del proyecto contactar a la cuenta de github damuoz121.
 
 ## Asuntos legales
 DA-FIT y sus autores no se hacen responsables del uso inadecuado de la información dentro del proyecto y la aplicación.
+
+Instalar gridfs
