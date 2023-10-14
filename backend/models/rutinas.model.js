@@ -9,5 +9,5 @@ const rutinaSchema = new mongoose.Schema({
         required: [true, 'requiere ejercicios']},
 })
 
-const Rutina = mongoose.model('cliente', rutinaSchema);
+const Rutina = mongoose.model('rutina', rutinaSchema);
 module.exports = Rutina

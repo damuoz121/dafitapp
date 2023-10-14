@@ -20,16 +20,6 @@ const clienteSchema = new mongoose.Schema({
         required: [true, 'requiere un apellido'],
         minLength:[2, 'los apellidos tienen mas de 2 letras'],
         maxLength:[30, 'los apellidos tienen maximo 30 letras']},
-    peso: {
-        type: Number,
-        required: [true, 'requiere un peso'],
-        min:[30, 'el peso requiere 2 digitos'],
-        max:[400, 'el peso requiere maximo 3 digitos']},
-    estatura: {
-        type: Number,
-        required: [true, 'requiere un peso'],
-        min:[100, 'la estatura 2 digitos'],
-        max:[220, 'el peso requiere maximo 3 digitos']},
     fechadenacimiento: {
         type: Date, 
         required: [true, 'la fecha de nacimiento es obligatoria']},

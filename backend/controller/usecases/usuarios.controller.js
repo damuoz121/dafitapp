@@ -1,46 +1,95 @@
-const dataUsuarios= require('../data-access/usuarios.controller');
+const usuarioDataAccess= require('../data-access/usuarios.controller');
 
-exports.registrarUsuario = (req,res)=>{
-    const {usuario,password,rol} = req.body;
-  
-    if (dataUsuarios.buscartodosUsuarios(usuario)){
-      return{error:'este usuario ya existe'}
-  
-    }else{
-      dataUsuarios.registrarUsuario();
-      res.send('Usuario registrado exitosamente')
-    }
-  }
+exports.validarUsuario=async(req,res)=>{
+  try {
+    const usuario = await usuarioDataAccess.findOne({ nombre: nombreUsuario });
 
-  exports.eliminarUsuario=(req, res)=>{
-    req.body;
-    if(dataUsuarios.buscarUsuario(_id)){
-      return{error:'este usuario no existe'}
-    }else{
-      dataUsuarios.deleteOne(_id);
-      res.send('Usuario eliminado con exito')
+    if (!usuario) {
+      console.log('Usuario no encontrado.');
+      return false;
     }
-  
-  }
-  
-  exports.verUsuarios = async(req,res)=>{
-    const usuario = await dataUsuarios.buscarUsuario();
-    console.log('saludo '+ usuario.usuario);
-    if (!usuario){
-      return{error:'no se pueden ver los usuarios'}
-    }else{
-      return {lista: usuario.lista};
+
+    if (usuario.contraseña === contraseña) {
+      console.log('Usuario validado con éxito.');
+      return true;
+    } else {
+      console.log('Contraseña incorrecta.');
+      return false;
     }
-  
+  } catch (error) {
+    console.error('Error al validar el usuario:', error);
+    return false;
   }
-  
-  exports.actualizarUsuario = async(req,res)=>{
-    const usuario = await dataUsuarios.actualizarUsuario();
-    console.log('saludo'+ usuario.usuario);
-    if (!usuario){
-      return{error:'no se puede actualizar'}
-    }else{
-      return {lista: usuario.lista};
+}
+
+exports.crearUsuario = async (req, res) => {
+  try {
+ 
+    const { usuario, password, rol } = req.body;
+    const { error, value } = validarUsuario(req.body);
+    if (error) {
+      return res.status(400).json({ error: error.message });
     }
-  
+    const nuevoUsuario = await usuarioDataAccess.save(usuario, password, rol);
+    return res.status(201).json({ usuario: nuevoUsuario });
+  } catch (err) {
+    return res.status(500).json({ error: err.message });
   }
+};
+
+exports.obtenerUsuarios = async (req, res) => {
+  try {
+    const usuarios = await usuarioDataAccess.find();
+    return res.status(200).json({ usuarios });
+  } catch (err) {
+    return res.status(500).json({ error: err.message });
+  }
+};
+
+
+exports.obtenerUsuario = async (req, res) => {
+  try {
+
+    const { usuario } = req.params;
+
+    const usuarioEncontrado = await usuarioDataAccess.findOne(usuario);
+    if (!usuarioEncontrado) {
+      return res.status(404).json({ error: 'No se encontró ningún usuario con ese nombre' });
+    }
+    return res.status(200).json({ usuario: usuarioEncontrado });
+  } catch (err) {
+    return res.status(500).json({ error: err.message });
+  }
+};
+
+
+exports.actualizarUsuario = async (req, res) => {
+  try {
+    const { usuario } = req.params;
+    const { password, rol } = req.body;
+    const { error, value } = validarUsuario(req.body);
+    if (error) {
+      return res.status(400).json({ error: error.message });
+    }
+    const nuevoUsuario = await usuarioDataAccess.findOneAndReplace(usuario, { usuario, password, rol });
+    if (!nuevoUsuario) {
+      return res.status(404).json({ error: 'No se encontró ningún usuario con ese nombre' });
+    }
+    return res.status(200).json({ usuario: nuevoUsuario });
+  } catch (err) {
+    return res.status(500).json({ error: err.message });
+  }
+};
+
+exports.eliminarUsuario = async (req, res) => {
+  try {
+    const { usuario } = req.params;
+    const usuarioEliminado = await usuarioDataAccess.findOneAndDelete(usuario);
+    if (!usuarioEliminado) {
+      return res.status(404).json({ error: 'No se encontró ningún usuario con ese nombre' });
+    }
+    return res.status(200).json({ usuario: usuarioEliminado });
+  } catch (err) {
+    return res.status(500).json({ error: err.message });
+  }
+};
