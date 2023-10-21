@@ -32,7 +32,7 @@ const router= express.Router();
  * @swagger
  * /api/v1/crearusuario:
  *  post:
- *    summary: create a user
+ *    summary: crear un usuario
  *    tags: [Usuario]
  *    requestBody:
  *      required: true
@@ -43,13 +43,13 @@ const router= express.Router();
  *            $ref: '#/components/schemas/Usuario'
  *    responses:
  *      200:
- *        description: create a user!
+ *        description: crear un  usuario!
  */
 /**
  * @swagger
  * /api/v1/obtenerusuarios:
  *  get:
- *    summary: get users
+ *    summary: obtener usuarios
  *    tags: [Usuario]
  *    requestBody:
  *      required: true
@@ -60,13 +60,13 @@ const router= express.Router();
  *            $ref: '#/components/schemas/Usuario'
  *    responses:
  *      200:
- *        description: get all users!
+ *        description: obtener todos los usuarios!
  */
 /**
  * @swagger
  * /api/v1/actualizarusuario:
  *  put:
- *    summary: update users
+ *    summary: actualizar usuarios
  *    tags: [Usuario]
  *    requestBody:
  *      required: true
@@ -77,13 +77,13 @@ const router= express.Router();
  *            $ref: '#/components/schemas/Usuario'
  *    responses:
  *      200:
- *        description: update a user!
+ *        description: actualizar un usuario!
  */
 /**
  * @swagger
  * /api/v1/eliminarusuarios:
  *  delete:
- *    summary: delete users
+ *    summary: eliminar usuarios
  *    tags: [Usuario]
  *    requestBody:
  *      required: true
@@ -94,7 +94,7 @@ const router= express.Router();
  *            $ref: '#/components/schemas/Usuario'
  *    responses:
  *      200:
- *        description: delete all users!
+ *        description: eliminar un usuario!
  */
 
 //cliente
@@ -147,7 +147,7 @@ const router= express.Router();
  * @swagger
  * /api/v1/crearcliente:
  *  post:
- *    summary: create a cliente
+ *    summary: crear un cliente
  *    tags: [Cliente]
  *    requestBody:
  *      required: true
@@ -164,7 +164,7 @@ const router= express.Router();
  * @swagger
  * /api/v1/obtenerclientes:
  *  get:
- *    summary: get clients
+ *    summary: obtener clients
  *    tags: [Cliente]
  *    requestBody:
  *      required: true
@@ -175,13 +175,13 @@ const router= express.Router();
  *            $ref: '#/components/schemas/Clientes'
  *    responses:
  *      200:
- *        description: get all clients!
+ *        description: obtener todos los clientes!
  */
 /**
  * @swagger
  * /api/v1/actualizarcliente:
  *  put:
- *    summary: update clients
+ *    summary: actualizar cliente
  *    tags: [Cliente]
  *    requestBody:
  *      required: true
@@ -192,13 +192,13 @@ const router= express.Router();
  *            $ref: '#/components/schemas/Clientes'
  *    responses:
  *      200:
- *        description: update client!
+ *        description: actualizar cliente!
  */
 /**
  * @swagger
  * /api/v1/eliminarcliente:
  *  delete:
- *    summary: delete client
+ *    summary: eliminar cliente
  *    tags: [Cliente]
  *    requestBody:
  *      required: true
@@ -209,8 +209,301 @@ const router= express.Router();
  *            $ref: '#/components/schemas/Clientes'
  *    responses:
  *      200:
- *        description: delete client!
+ *        description: eliminar cliente!
  */
+//ejercicios
+/**
+ *@swagger
+ *  components:
+ *  schemas:
+ *      Ejercicio:
+ *          type: object
+ *          properties:
+ *              nombre:
+ *                  type: string
+ *                  description: el nombre del ejercicio
+ *              dificultad:
+ *                  type: number
+ *                  description: la dificultad del ejercicio
+ *              descripcion:
+ *                  type: string
+ *                  description: la descripcion del ejercicio
+ *              musculatura:
+ *                  type: string
+ *                  description: la musculatura implicada del ejercicio
+ *          required:
+ *              -nombre
+ *              -dificultad
+ *              -descripcion
+ *              -musculatura
+ *          example:
+ *              nombre: 
+ *              dificultad: 
+ *              descripcion: 
+ *              musculatura:
+ */
+ /**
+ * @swagger
+ * /api/v1/crearejercicio:
+ *  post:
+ *    summary: crear un ejercicio
+ *    tags: [Ejercicio]
+ *    requestBody:
+ *      required: true
+ *      content:
+ *        application/json:
+ *          schema:
+ *            type: object
+ *            $ref: '#/components/schemas/Ejercicio'
+ *    responses:
+ *      200:
+ *        description: crear ejercicio!
+ */
+/**
+ * @swagger
+ * /api/v1/obtenerejercicios:
+ *  get:
+ *    summary: obtener ejercicios
+ *    tags: [Ejercicio]
+ *    requestBody:
+ *      required: true
+ *      content:
+ *        application/json:
+ *          schema:
+ *            type: object
+ *            $ref: '#/components/schemas/Ejercicio'
+ *    responses:
+ *      200:
+ *        description: obtener todos los ejercicios!
+ */
+/**
+ * @swagger
+ * /api/v1/actualizarejercicio:
+ *  put:
+ *    summary: actualizar ejercicio
+ *    tags: [Ejercicio]
+ *    requestBody:
+ *      required: true
+ *      content:
+ *        application/json:
+ *          schema:
+ *            type: object
+ *            $ref: '#/components/schemas/Ejercicio'
+ *    responses:
+ *      200:
+ *        description: actualizar ejercicio!
+ */
+/**
+ * @swagger
+ * /api/v1/eliminarejercicio:
+ *  delete:
+ *    summary: eliminar ejercicio
+ *    tags: [Ejercicio]
+ *    requestBody:
+ *      required: true
+ *      content:
+ *        application/json:
+ *          schema:
+ *            type: object
+ *            $ref: '#/components/schemas/Ejercicio'
+ *    responses:
+ *      200:
+ *        description: eliminar ejercicio!
+ */
+//rutina
+/**
+ *@swagger
+ *  components:
+ *  schemas:
+ *      Rutina:
+ *          type: object
+ *          properties:
+ *              dia:
+ *                  type: string
+ *                  description: numero de la sesion
+ *              ejercicios:
+ *                  type: Array
+ *                  description: Los ejercicios que componen la rutina
+ *          required:
+ *              -dia
+ *              -ejercicios
+ *          example:
+ *              dia: 
+ *              ejercicios: 
+ */
+ /**
+ * @swagger
+ * /api/v1/crearrutina:
+ *  post:
+ *    summary: crear una rutina
+ *    tags: [Rutina]
+ *    requestBody:
+ *      required: true
+ *      content:
+ *        application/json:
+ *          schema:
+ *            type: object
+ *            $ref: '#/components/schemas/Rutina'
+ *    responses:
+ *      200:
+ *        description: crear rutina!
+ */
+/**
+ * @swagger
+ * /api/v1/obtenerrutinas:
+ *  get:
+ *    summary: obtener rutina
+ *    tags: [Rutina]
+ *    requestBody:
+ *      required: true
+ *      content:
+ *        application/json:
+ *          schema:
+ *            type: object
+ *            $ref: '#/components/schemas/Rutina'
+ *    responses:
+ *      200:
+ *        description: obtener todos las rutinas!
+ */
+/**
+ * @swagger
+ * /api/v1/actualizarrutina:
+ *  put:
+ *    summary: actualizar rutina
+ *    tags: [Rutina]
+ *    requestBody:
+ *      required: true
+ *      content:
+ *        application/json:
+ *          schema:
+ *            type: object
+ *            $ref: '#/components/schemas/Rutina'
+ *    responses:
+ *      200:
+ *        description: actualizar rutina!
+ */
+/**
+ * @swagger
+ * /api/v1/eliminarrutina:
+ *  delete:
+ *    summary: eliminar rutina
+ *    tags: [Rutina]
+ *    requestBody:
+ *      required: true
+ *      content:
+ *        application/json:
+ *          schema:
+ *            type: object
+ *            $ref: '#/components/schemas/Rutina'
+ *    responses:
+ *      200:
+ *        description: eliminar rutina!
+ */
+//plan
+/**
+ *@swagger
+ *  components:
+ *  schemas:
+ *      Plan:
+ *          type: object
+ *          properties:
+ *              nombre:
+ *                  type: string
+ *                  description: el nombre del ejercicio
+ *              frecuencia:
+ *                  type: number
+ *                  description: la dificultad del ejercicio
+ *              dificultad:
+ *                  type: number
+ *                  description: la descripcion del ejercicio
+ *              objetivo:
+ *                  type: string
+ *                  description: la musculatura implicada del ejercicio
+ *              rutina:
+ *                  type: string
+ *                  description: la musculatura implicada del ejercicio
+ *          required:
+ *              -nombre
+ *              -frecuencia
+ *              -dificultad
+ *              -objetivo
+ *              -rutinas
+ *          example:
+ *              nombre:
+ *              frecuencia: 
+ *              dificultad: 
+ *              objetivo: 
+ *              rutinas:
+ */
+ /**
+ * @swagger
+ * /api/v1/crearplan:
+ *  post:
+ *    summary: crear un plan
+ *    tags: [Plan]
+ *    requestBody:
+ *      required: true
+ *      content:
+ *        application/json:
+ *          schema:
+ *            type: object
+ *            $ref: '#/components/schemas/Plan'
+ *    responses:
+ *      200:
+ *        description: crear plan!
+ */
+/**
+ * @swagger
+ * /api/v1/obtenerplan:
+ *  get:
+ *    summary: obtener plan
+ *    tags: [Plan]
+ *    requestBody:
+ *      required: true
+ *      content:
+ *        application/json:
+ *          schema:
+ *            type: object
+ *            $ref: '#/components/schemas/Plan'
+ *    responses:
+ *      200:
+ *        description: obtener todos los planes!
+ */
+/**
+ * @swagger
+ * /api/v1/actualizarplan:
+ *  put:
+ *    summary: actualizar plan
+ *    tags: [Plan]
+ *    requestBody:
+ *      required: true
+ *      content:
+ *        application/json:
+ *          schema:
+ *            type: object
+ *            $ref: '#/components/schemas/Plan'
+ *    responses:
+ *      200:
+ *        description: actualizar plan!
+ */
+/**
+ * @swagger
+ * /api/v1/eliminarplan:
+ *  delete:
+ *    summary: eliminar plan
+ *    tags: [Plan]
+ *    requestBody:
+ *      required: true
+ *      content:
+ *        application/json:
+ *          schema:
+ *            type: object
+ *            $ref: '#/components/schemas/Plan'
+ *    responses:
+ *      200:
+ *        description: eliminar plan!
+ */
+
 //controllers
 const clientesController = require('../controller/usecases/clientes.controller');
 const usuariosController = require('../controller/usecases/usuarios.controller');
