@@ -1,5 +1,6 @@
 // Importamos el data access de ejercicios
 const ejercicioDataAccess = require('../data-access/ejercicios.controller');
+const ejercicios= require('../../models/ejercicios.model')
 exports.validarEjercicio=async(req,res)=>{
   try {
     const ejercicio = await ejercicioDataAccess.findOne({ nombre: nombreEjercicio });
@@ -23,22 +24,18 @@ exports.validarEjercicio=async(req,res)=>{
 }
 exports.crearEjercicio = async (req, res) => {
   try {
-
-    const { nombre, dificultad, descripcion, musculatura } = req.body;
-
-    const { error, value } = validarEjercicio(req.body);
-   
-    if (error) {
-      return res.status(400).json({ error: error.message });
-    }
-
-    const nuevoEjercicio = await ejercicioDataAccess.save(nombre, dificultad, descripcion, musculatura);
-
-    return res.status(201).json({ ejercicio: nuevoEjercicio });
-  } catch (err) {
-
-    return res.status(500).json({ error: err.message });
-  }
+    const nuevoEjercicio = new ejercicios({
+        nombre: req.body.nombre,
+        dificultad: req.body.dificultad,
+        descripcion: req.body.descripcion,
+        musculo_principal: req.body.musculo_principal
+    });
+await nuevoEjercicio.save();
+    res.redirect('/api/v1/admindashboard');
+} catch (error) {
+    console.error(error);
+    res.status(500).send("Error al registrar el ejercicio");
+      }
 };
 
 

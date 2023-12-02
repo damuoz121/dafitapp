@@ -1,15 +1,37 @@
 const clienteDataAccess = require('../data-access/clientes.controller');
-
+const clientes= require('../../models/clientes.model');
+// Creamos un caso de uso para crear un nuevo cliente
+exports.crearCliente = async (req, res) => {
+  try {
+    const nuevoCliente = new clientes({
+        rol:req.body.rol,
+        cedula:req.body.cedula,
+        usuario:req.body.usuario,
+        nombre: req.body.nombre,
+        apellido: req.body.apellido,
+        fechadenacimiento: req.body.fechadenacimiento,
+        email: req.body.email,
+        password:req.body.password,
+        telefono:req.body.telefono,
+    });
+await nuevoCliente.save();
+    console.log('Registro exitoso');
+    //window.alert('Registro exitoso: Inicie sesión');
+    res.redirect('/api/v1/login');
+} catch (error) {
+    console.error(error);
+    res.status(500).send("Error al registrar el cliente");
+    res.redirect('/api/v1/login')
+        }
+};
 exports.validarCliente= async()=>{
   try {
-    const cliente = await clienteDataAccess.findOne({ nombre: nombrecliente });
-
+    const cliente = await clienteDataAccess.findOne({ email: emailcliente });
     if (!cliente) {
       console.log('Usuario no encontrado.');
       return false;
     }
-
-    if (cliente.nombre === nombre) {
+    if (cliente.email === email) {
       console.log('Usuario validado con éxito.');
       return true;
     } else {
@@ -21,32 +43,7 @@ exports.validarCliente= async()=>{
     return false;
   }
 }
-
-
-// Creamos un caso de uso para crear un nuevo cliente
-exports.crearCliente = async (req, res) => {
-  try {
-    // Obtenemos los datos del cliente del cuerpo de la petición
-    const { cedula, usuario, nombre, apellido, peso, estatura, fechadenacimiento, email, telefono, instructor } = req.body;
-    // Validamos que los datos sean correctos y completos
-    // Puedes usar algún paquete de validación como Joi o express-validator
-    // O puedes crear tu propia función de validación
-    // Aquí asumimos que hay una función llamada validarCliente que devuelve un objeto con dos propiedades: error y value
-    const { error, value } = validarCliente(req.body);
-    // Si hay algún error en la validación, devolvemos un código de estado 400 y el mensaje de error
-    if (error) {
-      return res.status(400).json({ error: error.message });
-    }
-    // Si no hay error, usamos la función save del data access para guardar el nuevo cliente en la base de datos
-    const nuevoCliente = await clienteDataAccess.save(cedula, usuario, nombre, apellido, peso, estatura, fechadenacimiento, email, telefono, instructor);
-    // Devolvemos un código de estado 201 y el nuevo cliente creado
-    return res.status(201).json({ cliente: nuevoCliente });
-  } catch (err) {
-    // Si ocurre algún error en el proceso, devolvemos un código de estado 500 y el mensaje de error
-    return res.status(500).json({ error: err.message });
-  }
-};
-
+ 
 // Creamos un caso de uso para obtener todos los clientes
 exports.obtenerClientes = async (req, res) => {
   try {
@@ -59,6 +56,7 @@ exports.obtenerClientes = async (req, res) => {
     return res.status(500).json({ error: err.message });
   }
 };
+
 
 // Creamos un caso de uso para obtener un cliente por su cédula
 exports.obtenerCliente = async (req, res) => {
@@ -79,17 +77,15 @@ exports.obtenerCliente = async (req, res) => {
   }
 };
 
+
 // Creamos un caso de uso para actualizar un cliente por su cédula
 exports.actualizarCliente = async (req, res) => {
   try {
     // Obtenemos la cédula del cliente del parámetro de la ruta
     const { cedula } = req.params;
     // Obtenemos los datos del cliente del cuerpo de la petición
-    const { usuario, nombre, apellido, peso, estatura, fechadenacimiento, email, telefono, instructor } = req.body;
-     // Validamos que los datos sean correctos y completos
-     // Puedes usar algún paquete de validación como Joi o express-validator
-     // O puedes crear tu propia función de validación
-     // Aquí asumimos que hay una función llamada validarCliente que devuelve un objeto con dos propiedades: error y value
+    const { nombre, apellido, peso, estatura, fechadenacimiento, email, telefono } = req.body;
+
      const { error, value } = validarCliente(req.body);
      // Si hay algún error en la validación, devolvemos un código de estado 400 y el mensaje de error
      if (error) {
@@ -109,22 +105,20 @@ exports.actualizarCliente = async (req, res) => {
   }
 };
 
+
 // Creamos un caso de uso para eliminar un cliente por su cédula
-exports.eliminarCliente = async (req, res) => {
+exports.eliminarCliente = async (cedula) => {
   try {
-    // Obtenemos la cédula del cliente del parámetro de la ruta
-    const { cedula } = req.params;
-    // Usamos la función findOneAndDelete del data access para eliminar el cliente que coincida con la cédula y devolverlo
-    const clienteEliminado = await clienteDataAccess.findOneAndDelete(cedula);
-     // Si no se encuentra ningún cliente, devolvemos un código de estado 404 y un mensaje indicando que no existe
-     if (!clienteEliminado) {
-       return res.status(404).json({ error: 'No se encontró ningún cliente con esa cédula' });
-     }
-    // Si se encuentra y se elimina el cliente, devolvemos un código de estado 200 y el cliente eliminado
-    return res.status(200).json({ cliente: clienteEliminado });
-  } catch (err) {
-    // Si ocurre algún error en el proceso, devolvemos un código de estado 500 y el mensaje de error
-    return res.status(500).json({ error: err.message });
+    // Llamar a la función de la capa de acceso a datos para buscar y eliminar el cliente por su número de cédula
+    const clienteEliminado = await clienteDataAccess.buscaryeliminar(cedula);
+
+    if (!clienteEliminado) {
+      throw new Error('Cliente no encontrado o ya eliminado');
+    }
+    return clienteEliminado;
+  } catch (error) {
+    throw new Error('Error al eliminar el cliente: ' + error.message);
   }
 };
+
 

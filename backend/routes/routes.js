@@ -1,522 +1,13 @@
 const express = require('express');
 const router= express.Router();
-
-//usuario
-/**
- *@swagger
- *  components:
- *  schemas:
- *      Usuario:
- *          type: object
- *          properties:
- *              usuario:
- *                  type: string
- *                  description: El usuario es el identificador del usuario
- *              password:
- *                  type: string
- *                  description: El password es la contraseña unica del usuario
- *              rol:
- *                  type: string
- *                  description: El rol es lo que determina los permisos del usuario
- *          required:
- *              -usuario
- *              -password
- *              -rol
- *          example:
- *              usuario: Usuario1
- *              password: password1
- *              rol: cliente
- */
-
- /**
- * @swagger
- * /api/v1/crearusuario:
- *  post:
- *    summary: crear un usuario
- *    tags: [Usuario]
- *    requestBody:
- *      required: true
- *      content:
- *        application/json:
- *          schema:
- *            type: object
- *            $ref: '#/components/schemas/Usuario'
- *    responses:
- *      200:
- *        description: crear un  usuario!
- */
-/**
- * @swagger
- * /api/v1/obtenerusuarios:
- *  get:
- *    summary: obtener usuarios
- *    tags: [Usuario]
- *    requestBody:
- *      required: true
- *      content:
- *        application/json:
- *          schema:
- *            type: object
- *            $ref: '#/components/schemas/Usuario'
- *    responses:
- *      200:
- *        description: obtener todos los usuarios!
- */
-/**
- * @swagger
- * /api/v1/actualizarusuario:
- *  put:
- *    summary: actualizar usuarios
- *    tags: [Usuario]
- *    requestBody:
- *      required: true
- *      content:
- *        application/json:
- *          schema:
- *            type: object
- *            $ref: '#/components/schemas/Usuario'
- *    responses:
- *      200:
- *        description: actualizar un usuario!
- */
-/**
- * @swagger
- * /api/v1/eliminarusuarios:
- *  delete:
- *    summary: eliminar usuarios
- *    tags: [Usuario]
- *    requestBody:
- *      required: true
- *      content:
- *        application/json:
- *          schema:
- *            type: object
- *            $ref: '#/components/schemas/Usuario'
- *    responses:
- *      200:
- *        description: eliminar un usuario!
- */
-
-//cliente
-/**
- *@swagger
- *  components:
- *  schemas:
- *      Cliente:
- *          type: object
- *          properties:
- *              cedula:
- *                  type: string
- *                  description: id del cliente
- *              usuario:
- *                  type: moongose.Schema.Types.ObjectId
- *                  description: El password es la contraseña unica del usuario
- *              nombre:
- *                  type: string
- *                  description: el nombre del cliente
- *              apellido:
- *                  type: string
- *                  description: el apellido del cliente
- *              fechadenacimiento:
- *                  type: date
- *                  description: fecha de nacimiento
- *              email:
- *                  type: string
- *                  description: el email del cliente
- *              telefono:
- *                  type: string
- *                  description: el telefono del cliente
- *          required:
- *              -cedula
- *              -usuario
- *              -nombre
- *              -apellido
- *              -fechadenacimiento
- *              -email
- *              -telefono
- *          example:
- *              cedula: 0101011001
- *              usuario: danielitom
- *              nombre: Daniel
- *              apellido: Munoz
- *              fechadenacimiento: 1996-01-06
- *              email: danielito@mail.com
- *              telefono: 3010303030
- */
- /**
- * @swagger
- * /api/v1/crearcliente:
- *  post:
- *    summary: crear un cliente
- *    tags: [Cliente]
- *    requestBody:
- *      required: true
- *      content:
- *        application/json:
- *          schema:
- *            type: object
- *            $ref: '#/components/schemas/Usuario'
- *    responses:
- *      200:
- *        description: create a client!
- */
-/**
- * @swagger
- * /api/v1/obtenerclientes:
- *  get:
- *    summary: obtener clients
- *    tags: [Cliente]
- *    requestBody:
- *      required: true
- *      content:
- *        application/json:
- *          schema:
- *            type: object
- *            $ref: '#/components/schemas/Clientes'
- *    responses:
- *      200:
- *        description: obtener todos los clientes!
- */
-/**
- * @swagger
- * /api/v1/actualizarcliente:
- *  put:
- *    summary: actualizar cliente
- *    tags: [Cliente]
- *    requestBody:
- *      required: true
- *      content:
- *        application/json:
- *          schema:
- *            type: object
- *            $ref: '#/components/schemas/Clientes'
- *    responses:
- *      200:
- *        description: actualizar cliente!
- */
-/**
- * @swagger
- * /api/v1/eliminarcliente:
- *  delete:
- *    summary: eliminar cliente
- *    tags: [Cliente]
- *    requestBody:
- *      required: true
- *      content:
- *        application/json:
- *          schema:
- *            type: object
- *            $ref: '#/components/schemas/Clientes'
- *    responses:
- *      200:
- *        description: eliminar cliente!
- */
-//ejercicios
-/**
- *@swagger
- *  components:
- *  schemas:
- *      Ejercicio:
- *          type: object
- *          properties:
- *              nombre:
- *                  type: string
- *                  description: el nombre del ejercicio
- *              dificultad:
- *                  type: number
- *                  description: la dificultad del ejercicio
- *              descripcion:
- *                  type: string
- *                  description: la descripcion del ejercicio
- *              musculatura:
- *                  type: string
- *                  description: la musculatura implicada del ejercicio
- *          required:
- *              -nombre
- *              -dificultad
- *              -descripcion
- *              -musculatura
- *          example:
- *              nombre: 
- *              dificultad: 
- *              descripcion: 
- *              musculatura:
- */
- /**
- * @swagger
- * /api/v1/crearejercicio:
- *  post:
- *    summary: crear un ejercicio
- *    tags: [Ejercicio]
- *    requestBody:
- *      required: true
- *      content:
- *        application/json:
- *          schema:
- *            type: object
- *            $ref: '#/components/schemas/Ejercicio'
- *    responses:
- *      200:
- *        description: crear ejercicio!
- */
-/**
- * @swagger
- * /api/v1/obtenerejercicios:
- *  get:
- *    summary: obtener ejercicios
- *    tags: [Ejercicio]
- *    requestBody:
- *      required: true
- *      content:
- *        application/json:
- *          schema:
- *            type: object
- *            $ref: '#/components/schemas/Ejercicio'
- *    responses:
- *      200:
- *        description: obtener todos los ejercicios!
- */
-/**
- * @swagger
- * /api/v1/actualizarejercicio:
- *  put:
- *    summary: actualizar ejercicio
- *    tags: [Ejercicio]
- *    requestBody:
- *      required: true
- *      content:
- *        application/json:
- *          schema:
- *            type: object
- *            $ref: '#/components/schemas/Ejercicio'
- *    responses:
- *      200:
- *        description: actualizar ejercicio!
- */
-/**
- * @swagger
- * /api/v1/eliminarejercicio:
- *  delete:
- *    summary: eliminar ejercicio
- *    tags: [Ejercicio]
- *    requestBody:
- *      required: true
- *      content:
- *        application/json:
- *          schema:
- *            type: object
- *            $ref: '#/components/schemas/Ejercicio'
- *    responses:
- *      200:
- *        description: eliminar ejercicio!
- */
-//rutina
-/**
- *@swagger
- *  components:
- *  schemas:
- *      Rutina:
- *          type: object
- *          properties:
- *              dia:
- *                  type: string
- *                  description: numero de la sesion
- *              ejercicios:
- *                  type: Array
- *                  description: Los ejercicios que componen la rutina
- *          required:
- *              -dia
- *              -ejercicios
- *          example:
- *              dia: 
- *              ejercicios: 
- */
- /**
- * @swagger
- * /api/v1/crearrutina:
- *  post:
- *    summary: crear una rutina
- *    tags: [Rutina]
- *    requestBody:
- *      required: true
- *      content:
- *        application/json:
- *          schema:
- *            type: object
- *            $ref: '#/components/schemas/Rutina'
- *    responses:
- *      200:
- *        description: crear rutina!
- */
-/**
- * @swagger
- * /api/v1/obtenerrutinas:
- *  get:
- *    summary: obtener rutina
- *    tags: [Rutina]
- *    requestBody:
- *      required: true
- *      content:
- *        application/json:
- *          schema:
- *            type: object
- *            $ref: '#/components/schemas/Rutina'
- *    responses:
- *      200:
- *        description: obtener todos las rutinas!
- */
-/**
- * @swagger
- * /api/v1/actualizarrutina:
- *  put:
- *    summary: actualizar rutina
- *    tags: [Rutina]
- *    requestBody:
- *      required: true
- *      content:
- *        application/json:
- *          schema:
- *            type: object
- *            $ref: '#/components/schemas/Rutina'
- *    responses:
- *      200:
- *        description: actualizar rutina!
- */
-/**
- * @swagger
- * /api/v1/eliminarrutina:
- *  delete:
- *    summary: eliminar rutina
- *    tags: [Rutina]
- *    requestBody:
- *      required: true
- *      content:
- *        application/json:
- *          schema:
- *            type: object
- *            $ref: '#/components/schemas/Rutina'
- *    responses:
- *      200:
- *        description: eliminar rutina!
- */
-//plan
-/**
- *@swagger
- *  components:
- *  schemas:
- *      Plan:
- *          type: object
- *          properties:
- *              nombre:
- *                  type: string
- *                  description: el nombre del ejercicio
- *              frecuencia:
- *                  type: number
- *                  description: la dificultad del ejercicio
- *              dificultad:
- *                  type: number
- *                  description: la descripcion del ejercicio
- *              objetivo:
- *                  type: string
- *                  description: la musculatura implicada del ejercicio
- *              rutina:
- *                  type: string
- *                  description: la musculatura implicada del ejercicio
- *          required:
- *              -nombre
- *              -frecuencia
- *              -dificultad
- *              -objetivo
- *              -rutinas
- *          example:
- *              nombre:
- *              frecuencia: 
- *              dificultad: 
- *              objetivo: 
- *              rutinas:
- */
- /**
- * @swagger
- * /api/v1/crearplan:
- *  post:
- *    summary: crear un plan
- *    tags: [Plan]
- *    requestBody:
- *      required: true
- *      content:
- *        application/json:
- *          schema:
- *            type: object
- *            $ref: '#/components/schemas/Plan'
- *    responses:
- *      200:
- *        description: crear plan!
- */
-/**
- * @swagger
- * /api/v1/obtenerplan:
- *  get:
- *    summary: obtener plan
- *    tags: [Plan]
- *    requestBody:
- *      required: true
- *      content:
- *        application/json:
- *          schema:
- *            type: object
- *            $ref: '#/components/schemas/Plan'
- *    responses:
- *      200:
- *        description: obtener todos los planes!
- */
-/**
- * @swagger
- * /api/v1/actualizarplan:
- *  put:
- *    summary: actualizar plan
- *    tags: [Plan]
- *    requestBody:
- *      required: true
- *      content:
- *        application/json:
- *          schema:
- *            type: object
- *            $ref: '#/components/schemas/Plan'
- *    responses:
- *      200:
- *        description: actualizar plan!
- */
-/**
- * @swagger
- * /api/v1/eliminarplan:
- *  delete:
- *    summary: eliminar plan
- *    tags: [Plan]
- *    requestBody:
- *      required: true
- *      content:
- *        application/json:
- *          schema:
- *            type: object
- *            $ref: '#/components/schemas/Plan'
- *    responses:
- *      200:
- *        description: eliminar plan!
- */
+const clientes= require('../models/clientes.model');
+const plans= require('../models/plan.model');
+const ejercicios= require('../models/ejercicios.model');
 
 //controllers
 const clientesController = require('../controller/usecases/clientes.controller');
-const usuariosController = require('../controller/usecases/usuarios.controller');
 const ejerciciosController= require('../controller/usecases/ejercicios.controller');
-const rutinasController= require('../controller/usecases/rutinas.controller');
 const planesController= require('../controller/usecases/plan.controller');
-
-//usuarios
-router.get('/obtenerusuario', usuariosController.obtenerUsuario);
-router.get('/obtenerusuarios', usuariosController.obtenerUsuarios);
-router.post('/crearusuario', usuariosController.crearUsuario);
-router.put('/actualizarusuario', usuariosController.actualizarUsuario);
-router.delete('/eliminarusuario', usuariosController.eliminarUsuario);
 
 
 //clientes
@@ -533,13 +24,6 @@ router.post('/crearjercicio', ejerciciosController.crearEjercicio);
 router.put('/actualizarejercicio', ejerciciosController.actualizarEjercicio);
 router.delete('/eliminarejercicio', ejerciciosController.eliminarEjercicio);
 
-//rutinas
-router.get('/obtenerrutina', rutinasController.obtenerRutina);
-router.get('/obtenerrutinas', rutinasController.obtenerRutinas);
-router.post('/crearrutina', rutinasController.crearRutina);
-router.put('/actualizarrutina', rutinasController.actualizarRutina);
-router.delete('/eliminarrutina', rutinasController.eliminarRutina);
-
 //planes
 router.get('/obtenerplan', planesController.obtenerPlan);
 router.get('/obtenerplanes', planesController.obtenerPlanes);
@@ -547,5 +31,150 @@ router.post('/crearplan', planesController.crearPlan);
 router.put('/actualizarplan', planesController.actualizarPlan);
 router.delete('/eliminarplan', planesController.eliminarPlan);
 
+//pages
+//inicio
+router.get('/inicio', (req,res)=>{
+    res.render('pages/inicio')
+    });
+router.get('/sobrenosotros', (req,res)=>{
+    res.render('pages/sobrenosotros')
+    });
+router.get("/recuperar", function (req, res) {
+    res.render("pages/recuperar");
+    })
+router.get("/ejercicios", async (req, res) => {
+    const listaejercicios = await ejercicios.find();
+    res.render("pages/ejercicios", { listaejercicios });
+    });
+router.get("/planes", async (req, res) => {
+    const listaplanes = await plans.find();
+    res.render("pages/planes", { listaplanes });
+    });
+
+//Iniciar sesion ruta
+router.get('/login', (req,res)=>{
+    res.render('pages/login')
+    });
+router.get("/recuperar", (req, res) =>{
+    res.render("pages/recuperar");
+    })
+
+//Registrar ruta
+router.get('/signup', (req,res)=>{
+    res.render('pages/signup')
+    });
+router.post('/signup', clientesController.crearCliente)
+
+//Perfiles
+router.get('/admindashboard', (req,res)=>{
+    res.render('pages/admindashboard')
+    });
+router.get('/usuariodashboard', (req,res)=>{
+    res.render('pages/usuariodashboard')
+    });
+
+//Listas
+router.get("/listaclientes", async (req, res) => {
+    const listaclientes = await clientes.find();
+    res.render("pages/listas/listaclientes", { listaclientes });
+    });
+router.get("/listaplan", async (req, res) => {
+    const listaplan = await plan.find();
+    res.render("pages/listas/listaplanes", { listaplan });
+    });
+router.get("/listaejercicios", async (req, res) => {
+    const listaejercicios = await ejercicios.find();
+    res.render("pages/listas/listaejercicios", { listaejercicios });
+    });
+
+//Controlador ejercicio
+router.get("/registroejercicio", (req, res)=>{
+    res.render("pages/registroejercicios");
+    })
+router.get("/registrousuarioadmin", (req, res)=>{
+    res.render("pages/registrousuarioadmin");
+    })
+
+
+router.get("/ejercicios", async (req, res) => {
+    const listaejercicios = await ejercicios.find();
+    res.render("pages/ejercicios", { listaejercicios });
+    });
+router.get("/planes", async (req, res) => {
+    const listaplanes = await plans.find();
+    res.render("pages/planes", { listaplanes });
+    });
+
+
+
+//controlador ejercicio
+router.post('/registrojercicio', ejerciciosController.crearEjercicio);
+
+//post
+router.post("/registroejercicio", async (req, res) => {
+    try {
+        const nuevoEjercicio = new ejercicios({
+            nombre: req.body.nombre,
+            dificultad: req.body.dificultad,
+            descripcion: req.body.descripcion,
+            musculo_principal: req.body.musculo_principal
+        });
+    await nuevoEjercicio.save();
+        res.redirect("/api/v1/admindashboard");
+    } catch (error) {
+        console.error(error);
+        res.status(500).send("Error al registrar el ejercicio");
+        }
+      });
+
+
+router.post('/signup', clientesController.crearCliente)
+
+
+
+router.get('/registroplan',(req, res)=>{
+    res.render("pages/registroplanes");
+    })
+router.post("/registroplan", async (req, res) => {
+    try {
+        const nuevoPlan = new plans({
+            nombre: req.body.nombre,
+            dificultad: req.body.dificultad,
+            objetivo: req.body.objetivo,
+            });
+    await nuevoPlan.save();
+        console.log('Registro exitoso');
+        res.redirect('/api/v1/admindashboard');
+    } catch (error) {
+        console.error(error);
+        res.status(500).send("Error al registrar el plan");
+                    }
+    });
+
+
+router.post("/login", async (req, res) => {
+    const { email, password } = req.body; // Suponiendo que los datos se envían mediante un formulario
+    try {
+        // Lógica de autenticación para verificar el usuario y contraseña
+        const isCliente = await clientes.findOne({ email, password });
+    
+        // Verificar si es un administrador
+        const isAdmin = (email === 'admindafitapp@dafit.com' && password === 'admindafit');
+    
+        if (isAdmin) {
+            res.redirect('/api/v1/admindashboard'); // Redirige a la vista de administrador si las credenciales coinciden
+        } else if (isCliente) {
+            res.redirect('/api/v1/usuariodashboard'); // Redirige a la vista de usuario normal si las credenciales coinciden
+        } else {
+            // En caso de que no se cumplan las condiciones anteriores, se puede redirigir a una página de error o mostrar un mensaje de credenciales inválidas
+            res.redirect('/api/v1/login'); // Redirige a una página de error o manejo de credenciales inválidas
+        }
+        } catch (error) {
+            // Manejar cualquier error que ocurra durante la consulta a la base de datos
+            console.error(error);
+            res.status(500).send('Error interno del servidor');
+        }
+});
+    
 
 module.exports= router;

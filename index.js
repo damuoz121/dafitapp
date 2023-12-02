@@ -5,7 +5,7 @@ const dotenv = require("dotenv");
 const routes = require('./backend/routes/routes');
 const logger= require('morgan');
 dotenv.config();
-const path= require('path')
+const path= require('path');
 
 
 
@@ -16,7 +16,7 @@ const swaggerSpec={
   definition:{
     openapi: "3.0.0",
     info:{
-      title:"Node MongoDB API",
+      title:"DA-FIT Documentación",
       version: "1.0.0"
     },
     servers:[
@@ -25,19 +25,36 @@ const swaggerSpec={
       }
     ]
   },
-  apis:[`${path.join(__dirname, "/backend/routes/*.js")}`]
+  apis:[`${path.join(__dirname, "/docs/*.js")}`]
 }
 
 //logger
 app.use(logger('dev'));
 //middleware
-app.use(express.json())
-app.use(express.urlencoded({extended:true}))
-app.use('/api-doc', swaggerUI.serve, swaggerUI.setup(swaggerJsDoc(swaggerSpec)))
-app.use('/api/v1', routes)
+app.use(express.json());
+app.use(express.urlencoded({extended:true}));
+app.use('/api-doc', swaggerUI.serve, swaggerUI.setup(swaggerJsDoc(swaggerSpec)));
+app.use('/api/v1', routes);
 
 
+app.set("view engine", "ejs");
+app.set("views", path.join("frontend/views"));
 
+app.use(express.static(path.join(__dirname,'frontend')));
+
+app.use((req, res, next) => {
+  next(createError(404, 'Página no encontrada'));
+});
+
+//middleware para manejar los errores
+app.use((err, req, res, next) => {
+  // Establecer el código de estado y el mensaje del error
+  res.status(err.status || 500);
+  res.locals.message = err.message;
+
+  // Renderizar la vista de error
+  res.render('pages/error', {title: 'Error'});
+});
 
 
 //puerto

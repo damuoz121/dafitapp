@@ -1,0 +1,63 @@
+<title>Lista de usuarios</title>
+    <%- include('../../partials/headdashboard'); %>
+
+<body>
+
+<main>
+    <h1 class="text-3xl text-center">Clientes</h1>
+
+    <div class="flex flex-col">
+        <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
+            <div class="inline-block min-w-full py-2 sm:px-6 lg:px-8">
+              <div class="overflow-hidden">
+                <table class="min-w-full text-left text-sm font-light">
+                    <thead class="border-b font-medium dark:border-neutral-500">
+                        <tr>
+                            <th scope="col" class="px-6 py-4">Nombre</th>
+                            <th scope="col" class="px-6 py-4">Apellido</th>
+                            <th scope="col" class="px-6 py-4">Telefono</th>
+                            <th scope="col" class="px-6 py-4">Email</th>
+                            <th scope="col" class="px-6 py-4">Acciones</th>
+                        </tr>
+                    </thead>
+        <tbody>
+        <% listaclientes.forEach((clientes) => { %>
+            <tr  class="border-b transition duration-300 ease-in-out hover:bg-neutral-100 dark:border-neutral-500 dark:hover:bg-neutral-600">
+                <td class="whitespace-nowrap px-6 py-4 font-medium"><%= clientes.nombre %></td>
+                <td class="whitespace-nowrap px-6 py-4 font-medium"><%= clientes.apellido %></td>
+                <td class="whitespace-nowrap px-6 py-4 font-medium"><%= clientes.telefono %></td>
+                <td class="whitespace-nowrap px-6 py-4 font-medium"><%= clientes.email %></td>
+                <td>
+                    <button>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
+                            <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/>
+                        </svg>
+                    </button>
+                    <button onclick="eliminarCliente()">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
+                            <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
+                        </svg>
+                    </button>
+                </td>
+            </tr>
+        <% }) %>
+        </tbody>
+        </table>
+ 
+
+                </div>
+            </div>
+        </div> 
+    </div>
+
+
+
+  
+</main>
+
+
+
+
+
+</body>
+</html>

@@ -1,7 +1,7 @@
 const Plan = require('../../models/plan.model');
 
-exports.save = async (nombre, frecuencia, dificultad, objetivo, rutinas) => {
-  const nuevoPlan = new Plan({ nombre, frecuencia, dificultad, objetivo, rutinas });
+exports.save = async (nombre, frecuencia, dificultad, objetivo) => {
+  const nuevoPlan = new Plan({ nombre, frecuencia, dificultad, objetivo });
   return await nuevoPlan.save();
 };
 

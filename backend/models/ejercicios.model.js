@@ -7,18 +7,15 @@ const ejercicioSchema = new mongoose.Schema({
         maxlength: [50, 'El nombre no puede tener más de 50 caracteres']
     },
     dificultad: {
-        type: Number,
+        type: String,
         required: [true, 'La dificultad del ejercicio es obligatoria'],
-        min:[1,'error al colocar la dificultad'],
-        max:[3,'error al colocar la dificultad'],
-        enum: [1, 2, 3]
     },
     descripcion: {
         type: String,
         required: [true, 'La descripción del ejercicio es obligatoria'],
-        minlength: [10, 'La descripción debe tener al menos 10 caracteres']
+        minlength: [5, 'La descripción debe tener al menos 10 caracteres']
     },
-    musculatura: {
+    musculo_principal: {
         type: String,
         required: [true, 'La musculatura trabajada es obligatoria']
     }

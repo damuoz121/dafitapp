@@ -1,0 +1,196 @@
+<title>Lista de ejercicios</title>
+    <%- include('../../partials/headdashboard'); %>
+
+<body>
+
+<main>
+    <h1 class="text-3xl text-center">Ejercicios</h1>
+
+    <div class="flex flex-col">
+        <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
+            <div class="inline-block min-w-full py-2 sm:px-6 lg:px-8">
+              <div class="overflow-hidden">
+                <table class="min-w-full text-left text-sm font-light">
+                    <thead class="border-b font-medium dark:border-neutral-500">
+                        <tr>
+                            <th scope="col" class="px-6 py-4">Nombre</th>
+                            <th scope="col" class="px-6 py-4">Dificultad</th>
+                            <th scope="col" class="px-6 py-4">Descripcion</th>
+                            <th scope="col" class="px-6 py-4">Musculatura</th>
+                            <th scope="col" class="px-6 py-4">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <% listaejercicios.forEach((ejercicios) => { %>
+                        <tr  class="border-b transition duration-300 ease-in-out hover:bg-neutral-100 dark:border-neutral-500 dark:hover:bg-neutral-600">
+                            <td class="whitespace-nowrap px-6 py-4 font-medium"><%= ejercicios.nombre %></td>
+                            <td class="whitespace-nowrap px-6 py-4 font-medium"><%= ejercicios.dificultad %></td>
+                            <td class="whitespace-nowrap px-6 py-4 font-medium"><%= ejercicios.descripcion %></td>
+                            <td class="whitespace-nowrap px-6 py-4 font-medium"><%= ejercicios.musculo_principal %></td>
+
+                            <td>
+                                <button class="bg-red-50" data-bs-toggle="modal" data-bs-target="#editarModal" >
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
+                                        <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/>
+                                    </svg>
+                                </button>
+                                <button onclick="eliminarEjercicio()">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
+                                        <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
+                                    </svg>
+                                </button>
+                            </td>
+                        </tr>
+                    <% }) %>
+                    </tbody>
+                    </table>
+                </div>
+            </div>
+        </div> 
+    </div>
+<!-- Botón para abrir la ventana modal de edición -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editarModal ">
+    Editar Ejercicio
+  </button>
+  <!-- Ventana Modal para editar ejercicio -->
+  <div class="modal fade" id="editarModal" tabindex="-1" aria-labelledby="editarModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="editarModalLabel">Editar Ejercicio</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <!-- Aquí iría el formulario para editar el ejercicio -->
+          <!-- Por cuestiones de simplicidad, se muestra un ejemplo con campos -->
+          <form id="formularioEjercicio">
+            <div class="mb-3">
+              <label for="nombreEjercicio" class="form-label">Nombre del Ejercicio</label>
+              <input type="text" class="form-control" id="nombreEjercicio" name="nombreEjercicio">
+            </div>
+            <div class="mb-3">
+              <label for="dificultad" class="form-label">Dificultad</label>
+              <input type="text" class="form-control" id="dificultad" name="dificultad">
+            </div>
+            <div class="mb-3">
+              <label for="musculoPrincipal" class="form-label">Músculo Principal</label>
+              <input type="text" class="form-control" id="musculoPrincipal" name="musculoPrincipal">
+            </div>
+            <div class="mb-3">
+              <label for="descripcion" class="form-label">Descripción</label>
+              <textarea class="form-control" id="descripcion" name="descripcion" rows="3"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>  
+  <!-- Botón para eliminar el ejercicio -->
+  <button type="button" class="btn btn-danger" id="eliminarEjercicio">
+    Eliminar Ejercicio
+  </button>
+  
+  <!-- Botón para registrar un nuevo ejercicio -->
+  <button type="button" class="btn btn-success" id="#registrarEjercicio" data-bs-toggle="modalregistroejercicio" data-bs-target="#registroejercicio">
+    Registrar Nuevo Ejercicio
+  </button>
+
+  
+  <!-- The Modal -->
+  <div class="modal fade" id="registroejercicio">
+    <div class="modal-dialog">
+      <div class="modal-content">
+  
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Modal Heading</h4>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+  
+        <!-- Modal body -->
+        <div class="h-screen bg-slate-50 flex justify-center items-center w-full" id="contenedorregistroejercicio">
+          <form action="registroejercicio" method="post">
+            <div class="bg-white px-10 py-8 rounded-xl w-screen shadow-md max-w-sm">
+              <img class="h-14 mb-4 mx-auto" src="/static/dafit-logo.png" alt="logo">
+              <div class="space-y-4">
+                <h1 class="text-center text-2xl font-semibold text-gray-600">Registro de ejercicios</h1>
+                <div>
+                  <label for="nombre" class="form-label block mb-1 text-gray-600 font-semibold">nombre ejercicio</label>
+                  <input type="text" class="bg-indigo-50 px-4 py-2 outline-none rounded-md w-full" id="nombreEjercicio" name="nombre" />
+                </div>
+                <div>
+                  <label for="dificultad" class="form-label block mb-1 text-gray-600 font-semibold">dificultad</label>
+                  <input type="text" class="bg-indigo-50 px-4 py-2 outline-none rounded-md w-full" id="dificultad" name="dificultad" />
+                </div>
+                <div>
+                  <label for="descripcion" class="form-label block mb-1 text-gray-600 font-semibold">descripcion</label>
+                  <input type="text" class="bg-indigo-50 px-4 py-2 outline-none rounded-md w-full" id="descripcion" name="descripcion" />
+                </div>
+                <div>
+                  <label for="musculo_principal" class="block mb-1 text-gray-600 font-semibold">Musculo principal</label>
+                  <input type="text" class="bg-indigo-50 px-4 py-2 outline-none rounded-md w-full" id="musculo_principal" name="musculo_principal"/>
+                </div>
+  
+  
+              </div>
+              <button type="submit" class="mt-4 w-full bg-blue-600 text-white font-semibold py-2 rounded-md  tracking-wide">Registrar ejercicio</button>
+            </div>
+          </form>
+        </div>
+  
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+        </div>
+  
+      </div>
+    </div>
+  </div>
+
+
+
+
+  
+  <!-- Ventana Modal para editar ejercicio -->
+  <div class="modal fade" id="editarModal" tabindex="-1" aria-labelledby="editarModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="editarModalLabel">Editar Ejercicio</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <!-- Aquí iría el formulario para editar el ejercicio -->
+          <!-- Por cuestiones de simplicidad, se muestra un ejemplo con campos -->
+          <form id="formularioEjercicio">
+            <div class="mb-3">
+              <label for="nombreEjercicio" class="form-label">Nombre del Ejercicio</label>
+              <input type="text" class="form-control" id="nombreEjercicio" name="nombreEjercicio">
+            </div>
+            <div class="mb-3">
+              <label for="dificultad" class="form-label">Dificultad</label>
+              <input type="text" class="form-control" id="dificultad" name="dificultad">
+            </div>
+            <div class="mb-3">
+              <label for="musculoPrincipal" class="form-label">Músculo Principal</label>
+              <input type="text" class="form-control" id="musculoPrincipal" name="musculoPrincipal">
+            </div>
+            <div class="mb-3">
+              <label for="descripcion" class="form-label">Descripción</label>
+              <textarea class="form-control" id="descripcion" name="descripcion" rows="3"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+
+
+
+
+</body>
+</html>

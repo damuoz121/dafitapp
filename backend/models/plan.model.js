@@ -12,18 +12,16 @@ const planSchema = new mongoose.Schema({
         enum: [1, 2, 3]
     },
     dificultad: {
-        type: Number,
+        type: String,
         required: [true, 'La dificultad del plan es obligatoria'],
-        min: [1, 'error al colocar la dificultad' ],
-        max:[3, 'error al colocar la dificultad']
     },
     objetivo: {
         type: String,
         required: [true, 'El objetivo del plan es obligatorio']
     },
-    rutinas: [{
+    ejercicios: [{
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Rutina'
+        ref: 'ejercicios'
     }]
 });
 

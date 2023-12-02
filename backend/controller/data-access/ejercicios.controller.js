@@ -1,8 +1,8 @@
 // Importamos el modelo de ejercicio
 const Ejercicio = require('../../models/ejercicios.model');
 
-exports.save = async (nombre, dificultad, descripcion, musculatura) => {
-  const nuevoEjercicio = new Ejercicio({ nombre, dificultad, descripcion, musculatura });
+exports.save = async (nombre, dificultad, descripcion, musculo_principal) => {
+  const nuevoEjercicio = new Ejercicio({ nombre, dificultad, descripcion, musculo_principal});
   return await nuevoEjercicio.save();
 };
 

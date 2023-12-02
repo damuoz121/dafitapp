@@ -1,35 +1,35 @@
 const Cliente=require('../../models/clientes.model');
 
-exports.save = async (cedula, usuario, nombre, apellido, peso, estatura, fechadenacimiento, email, telefono, instructor) => {
-  const nuevoCliente = new Cliente({ cedula, usuario, nombre, apellido, peso, estatura, fechadenacimiento, email, telefono, instructor });
+exports.crearCliente = async (rol, cedula, nombre, apellido, fechadenacimiento, email, password, telefono) => {
+  const nuevoCliente = new Cliente({rol, cedula, nombre, apellido, fechadenacimiento, email, password, telefono });
   return await nuevoCliente.save();
 };
 
-exports.insertMany = async (clientes) => {
+exports.crearClientes = async (clientes) => {
   return await Cliente.insertMany(clientes);
 };
 
-exports.find = async () => {
+exports.buscarClientes = async () => {
   return await Cliente.find();
 };
 
-exports.findOne = async (cedula) => {
+exports.buscarunCliente = async (cedula) => {
   return await Cliente.findOne({ cedula });
 };
 
-exports.findOneAndReplace = async (cedula, nuevoCliente) => {
+exports.reemplazar = async (cedula, nuevoCliente) => {
   return await Cliente.findOneAndReplace({ cedula }, nuevoCliente);
 };
 
-//filtro
-exports.updateMany = async (email) => {
-  return await Cliente.updateMany(email);
+
+exports.actualizar = async (email, telefono, password ) => {
+  return await Cliente.updateMany(email, telefono, password);
 };
 
-exports.deleteOne = async (cedula) => {
+exports.eliminar = async (cedula) => {
   return await Cliente.deleteOne({ cedula });
 };
 
-exports.findOneAndDelete = async (cedula) => {
+exports.buscaryeliminar = async (cedula) => {
   return await Cliente.findOneAndDelete({ cedula });
 };
